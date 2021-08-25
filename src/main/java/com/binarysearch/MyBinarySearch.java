@@ -14,19 +14,20 @@ public class MyBinaryNode<K extends Comparable<K>> {
     }
 
 
-public class MyBinarySearch{
-    @TEST
-    <MyBinaryTree>
-    void given3NodeswhenaddedtoBinarySearchTree(){
-        MyBinaryTree<Integer>myBinaryNode=new MyBinaryTree<>();
-        MyBinaryTree.add(56);
-        MyBinaryTree.add(30);
-        MyBinaryTree.add(70);
-        int size =MyBinaryTree.getSize();
-        Assert.assertEquals(3,size);
+    public class MyBinarySearch {
+        @TEST
+        <MyBinaryTree>
+        void given3NodeswhenaddedtoBinarySearchTree() {
+            MyBinaryTree<Integer> myBinaryNode = new MyBinaryTree<>();
+            MyBinaryTree.add(56);
+            MyBinaryTree.add(30);
+            MyBinaryTree.add(70);
+            int size = MyBinaryTree.getSize();
+            Assert.assertEquals(3, size);
+        }
     }
-}
-public class MyBinaryTree extends Comparable<K>>
+
+    public class MyBinaryTree extends Comparable<K>>
 
     {
         private MyBinaryNode<K> root;
@@ -72,6 +73,52 @@ public class MyBinaryTree extends Comparable<K>>
     }
     }
 
+    public class MyBinaryTree extends Comparable<K>>
+
+    {
+        if (current == null)
+            return new MyBinaryNode<>(key);
+        int compareResult = key.compareTo(root.key);
+        if (compareResult == 0)
+            return current;
+        if (compareResult < 0) {
+            current.left = addRecursive(current, left, key);
+        } else {
+            current.left = addRecursive(current, right, key);
+        }
+        return current;
+    }
+
+    public int getSize() {
+        return this.getSizeRecursive(root);
+    }
+
+    private int getSizeRecursive(MyBinaryNode<K> current) {
+        return current == null ? 0 : 1 + this.getSizeRecursive(current, left) + this.getSizeRecursive(current, right);
+    }
+
+
+    public SearchBinaryTree() {
+        root = null;
+    }
+
+    public void searchNode(Node temp, int value) {
+        if (root == null) {
+            System.out.println("Tree is empty");
+        } else {
+            if (temp.data == value) {
+                flag = true;
+                return;
+            }
+            if (flag == false && temp.left = null) {
+                searchNode(temo.left, value);
+            }
+            if (flag == false && temp.left = null) {
+                searchNode(temo.left, value);
+            }
+        }
+    }
+}
 
 
 
