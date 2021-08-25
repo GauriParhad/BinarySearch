@@ -14,7 +14,7 @@ public class MyBinaryNode<K extends Comparable<K>> {
 }
 
 public class MyBinarySearch{
-    @Test
+    @TEST
     <MyBinaryTree>
     void given3NodeswhenaddedtoBinarySearchTree(){
         MyBinaryTree<Integer>myBinaryNode=new MyBinaryTree<>();
