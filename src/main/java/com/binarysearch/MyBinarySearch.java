@@ -1,4 +1,5 @@
 package com.binarysearch;
+import jdk.jfr.StackTrace;
 import org.junit.jupiter.api.Test;
 
 public class MyBinaryNode<K extends Comparable<K>> {
@@ -11,7 +12,7 @@ public class MyBinaryNode<K extends Comparable<K>> {
         this.left = null;
         this.right = null;
     }
-}
+
 
 public class MyBinarySearch{
     @TEST
@@ -25,30 +26,52 @@ public class MyBinarySearch{
         Assert.assertEquals(3,size);
     }
 }
-public class MyBinaryTree extends Comparable<K>>{
-private MyBinaryNode<K> root;
-private MyBinaryNode<K> addRecursive;
+public class MyBinaryTree extends Comparable<K>>
 
-public void add(K key){
-        addRecursive=this.addRecusive(root,key()->{
-        int compareResult1=key.compareTo(root.Key);
+    {
+        private MyBinaryNode<K> root;
+        private MyBinaryNode<K> addRecursive;
+
+        public void add (K key){
+        addRecursive = this.addRecusive(root, key()->{
+            int compareResult1 = key.compareTo(root.Key);
         });
-        this.root=addRecursive;
+        this.root = addRecursive;
+    }
+        private MyBinaryNode<K> addRecursive (MyBinaryNode < K > current, K key){
+        if (current == null)
+            return new MyBinaryNode<>(key);
+        int compareResult = key.compareTo(root.key);
+        if (compareResult == 0)
+            return current;
+        if (compareResult < 0) {
+            current.left = addRecursive(current, left, key);
+        } else {
+            current.left = addRecursive(current, right, key);
         }
-private MyBinaryNode<K> addRecursive(MyBinaryNode<K> current,K key){
-        if(current==null)
-        return new MyBinaryNode<>(key);
-        int compareResult=key.compareTo(root.key);
-        if(compareResult==0)
         return current;
-        if(compareResult< 0){
-        current.left=addRecursive(current,left,key);
-        }else{
-        current.left=addRecursive(current,right,key);
-        }
-        return current;
-        }
-        }
+    }
+        @Test
+            <MyBinaryTree >
+        void given3nodeswhenaddedtoBST () {
+        MyBinaryTree<Integer> myBinaryTree = new MyBinaryTree<>();
+        myBinaryTree.add(56);
+        myBinaryTree.add(30);
+        myBinaryTree.add(70);
+        myBinaryTree.add(22);
+        myBinaryTree.add(40);
+        myBinaryTree.add(60);
+        myBinaryTree.add(95);
+        myBinaryTree.add(11);
+        myBinaryTree.add(65);
+        myBinaryTree.add(3);
+        myBinaryTree.add(63);
+        myBinaryTree.add(67);
+        int size = myBinaryTree.getsize();
+        Assert.assertEquals(3, size);
+    }
+    }
+
 
 
 
